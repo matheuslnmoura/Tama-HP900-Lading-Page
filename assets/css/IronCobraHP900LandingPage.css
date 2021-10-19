@@ -8,7 +8,12 @@ body
 }
 
 
-
+.website-header
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 header{
     width: 100%;
     max-width: 1480px;
@@ -92,7 +97,7 @@ header{
     filter: brightness(50%);
     background-position: 0% 0%;
     background-size: cover;
-    max-width: 1480px;
+    width: 100%;
     height: 470px;
     position: relative;
     
@@ -112,6 +117,7 @@ header{
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    flex-wrap: wrap;
 }
 
 .product-path li{
@@ -215,13 +221,13 @@ header{
 
 .features h1{
     margin-top: 60px;
-    margin-left: 60px;
+    margin-left: 20px;
     font-family: 'Open Sans', sans-serif;
     font-size: 42px;
 }
 
 .article-content{
-    width: 90vw;
+    width: 100%;
     background-color: #ededed;
     align-self: center;
     display: flex;
@@ -254,9 +260,11 @@ header{
 .article-content-img{
     background-image: url("../Images/feat_HP900PWN_Pedal_Anchor.jpg");
     background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     width:34%;
-    --widthA: calc((90vw)*0.34);
-    height: calc((var(--widthA))*.625);
+    --widthB: calc((90vw)*0.34);
+    height: calc((var(--widthB))*.625);
     order: 2; 
     position:relative;
     top: 0;     
@@ -264,6 +272,7 @@ header{
 
 .support{
     width:100%;
+    max-width: 1480px;
     background-color: #ededed;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
@@ -273,7 +282,7 @@ header{
 
 .support-container{
     width: 90vw;
-    max-width: 1480px;
+    max-width: 90%;
 }
 
 .support-container h2{
@@ -313,6 +322,7 @@ header{
 
 .rvp{
     width: 100%;
+    max-width: 1480px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -322,7 +332,7 @@ header{
     width: 90%;
     display: flex;
     flex-direction: column;
-    max-width: 1480px;
+   
 }
 
 .rvp-header{
@@ -351,14 +361,17 @@ header{
 
 .rvp-list{
     list-style-type: none;
+    list-style: none;
     display: flex;
     flex-direction: row;
+    padding-inline-start: 0px;
 }
 
 .rvp-list li{
     width: calc((90vw)*0.20);
-    --widthB: calc((90vw)*0.20);
-    padding: 0px 20px;
+    min-width: 100px;
+    padding-left: calc((90vw)*0.20*0.10);
+    padding-right: calc((90vw)*0.20*0.10);
     border-right: 1px dashed #777;
 }
 
@@ -461,6 +474,7 @@ footer{
 .footer-path ul{
     display:flex;
     justify-content: center;
+    flex-wrap: wrap;
     list-style-type: none;
     padding-left: 0px;
 }
@@ -475,7 +489,7 @@ footer{
     font-family: 'Oswald', sans-serif;
     font-weight: bold;
     padding: 5px;
-    border-left: 1px solid #FFF;
+    border-right: 1px solid #FFF;
 }
 
 .footer-menu-pages a:hover{
@@ -524,4 +538,125 @@ footer{
         filter: brightness(50%);
         transition: .2s;
     }
+}
+@media screen and (min-width: 1480px){
+    .article-content-img{
+        height: calc((1480px) * (0.34) * (0.625));
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 768px){
+    .backdrop-text{
+        font-size: 32px;
+    }
+
+    .overview-text p{
+        font-size: 16px;
+    }
+
+    .features-header{
+        width: 90%;
+    }
+
+    .features h1{
+        font-size: 32px;
+    }
+
+    .article-content{
+        width: 100%;
+        background-color: #ededed;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 40px;
+        align-items: center;
+    }
+    
+    .article-content-text{
+        background-color: #ededed;
+        order: 2;
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    
+    .article-content-text h2 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 24px;
+        margin: 0px 30px 20px 0px;
+    }
+    
+    .article-content-text p {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 14px;
+        text-align: justify;
+        padding: 0px 30px 0px 0px;
+        margin: 0px;
+    }
+    
+    .article-content-img{
+        background-image: url("../Images/feat_HP900PWN_Pedal_Anchor.jpg");
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width:90%;
+        --widthB: 90vw;
+        height: calc((var(--widthB))*.625);
+        order: 1; 
+        position:relative;
+        top: 0;     
+    }
+
+    .rvp-header i{
+        font-size: 36px;
+        color: #aaa;
+    }
+    
+    .rvp-header p{
+        font-family: 'Open sans', sans-serif;
+        font-size: 18px;
+        padding-left: 20px;
+    }
+   
+}
+
+@media screen and (max-width: 425px){
+    .left-corner{
+        width: 20px;
+    }
+    
+    .search-icon{
+        display: none;
+    }
+
+    .menu-icon{
+        margin-left: 15px;
+    }
+
+    .header-logo-area{
+        justify-content: space-between;
+    }
+
+    .social-media-space{
+        width: 20px;
+    }
+
+
+    .social-media-space i{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 600px){
+    .support-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .support-links-icons ul{
+        padding-left: 0px;
+    }
+
 }
